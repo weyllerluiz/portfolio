@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        /* ... (Estilos CSS mantidos idênticos - Design preservado) ... */
+        /* ... (Estilos CSS mantidos e otimizados) ... */
         :root {
             --bg-dark: #0f172a;
             --bg-card: #1e293b;
@@ -29,25 +29,28 @@
             color: var(--text-light);
             font-family: 'Outfit', sans-serif;
             margin: 0;
-            padding: 40px 0;
+            padding: 20px 10px; /* Padding reduzido para mobile */
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 40px;
         }
 
-        /* Container do Slide */
+        /* Container do Slide - RESPONSIVO */
         .slide {
-            width: 794px; /* A4 width approx */
-            height: 1123px; /* A4 height approx */
+            width: 100%;
+            max-width: 800px; /* Limite máximo para desktop */
+            min-height: 800px; /* Altura mínima em vez de fixa */
+            height: auto; /* Permite crescer se o conteúdo precisar */
             background: var(--gradient-main);
             position: relative;
-            overflow: hidden;
+            overflow: hidden; /* Mantém overflow hidden para efeitos de fundo */
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
             display: flex;
             flex-direction: column;
             border: 1px solid #334155;
             margin-bottom: 40px;
+            border-radius: 20px;
         }
 
         /* Elementos Decorativos */
@@ -78,10 +81,11 @@
         .content {
             position: relative;
             z-index: 10;
-            padding: 60px;
+            padding: 60px; /* Padding padrão desktop */
             height: 100%;
             display: flex;
             flex-direction: column;
+            flex-grow: 1; /* Garante que o conteúdo ocupe o espaço */
         }
 
         h1, h2, h3 { margin: 0; }
@@ -100,10 +104,11 @@
 
         .hero-title { font-size: 72px; line-height: 1; font-weight: 900; background: linear-gradient(to right, #fff, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 20px; }
         .hero-subtitle { font-size: 28px; color: var(--accent-cyan); margin-bottom: 40px; }
-        .profile-highlight { display: flex; align-items: center; gap: 20px; margin-top: auto; background: var(--glass); padding: 20px; border-radius: 12px; border-left: 4px solid var(--accent-cyan); backdrop-filter: blur(10px); }
-        .avatar { width: 80px; height: 80px; border-radius: 50%; border: 2px solid var(--accent-cyan); background-color: #333; background-image: url('https://ui-avatars.com/api/?name=Weyller+Luiz&background=0f172a&color=06b6d4&size=128'); background-size: cover; }
         
-        .journey-path { position: relative; flex: 1; display: flex; flex-direction: column; justify-content: space-around; padding-left: 40px; }
+        .profile-highlight { display: flex; align-items: center; gap: 20px; margin-top: auto; background: var(--glass); padding: 20px; border-radius: 12px; border-left: 4px solid var(--accent-cyan); backdrop-filter: blur(10px); }
+        .avatar { width: 80px; height: 80px; border-radius: 50%; border: 2px solid var(--accent-cyan); background-color: #333; background-image: url('https://ui-avatars.com/api/?name=Weyller+Luiz&background=0f172a&color=06b6d4&size=128'); background-size: cover; flex-shrink: 0; }
+        
+        .journey-path { position: relative; flex: 1; display: flex; flex-direction: column; justify-content: space-around; padding-left: 40px; gap: 20px; }
         .journey-line { position: absolute; left: 14px; top: 20px; bottom: 20px; width: 4px; background: linear-gradient(to bottom, #3b82f6, #06b6d4); border-radius: 2px; }
         .journey-card { background: var(--bg-card); padding: 25px; border-radius: 12px; border: 1px solid #334155; position: relative; margin-left: 30px; }
         .journey-card::before { content: ''; position: absolute; left: -46px; top: 50%; transform: translateY(-50%); width: 20px; height: 20px; background: #020617; border: 4px solid var(--accent-cyan); border-radius: 50%; z-index: 2; }
@@ -111,20 +116,26 @@
         .role-company { color: var(--accent-blue); font-size: 16px; margin-bottom: 10px; display: block; }
         .role-desc { font-size: 16px; color: var(--text-gray); }
 
-        .tech-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 30px; }
+        /* Tech Grid Responsivo */
+        .tech-grid { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 20px; 
+            margin-top: 30px; 
+        }
         .tech-item { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 25px; border-radius: 16px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 15px; }
         .tech-item i { font-size: 40px; color: var(--accent-cyan); }
         .tech-item h4 { font-size: 20px; color: #fff; }
 
-        /* Projetos Grid (LAYOUT PREENCHIMENTO TOTAL) */
+        /* Projetos Grid Responsivo */
         .projects-wrapper {
             display: grid;
-            grid-template-columns: 1fr 1fr; /* Duas colunas */
-            grid-template-rows: 1fr 1fr;    /* Duas linhas que esticam */
+            grid-template-columns: 1fr 1fr; /* Desktop: 2 colunas */
+            /* grid-template-rows removido para flexibilidade */
             gap: 20px;
             margin-top: 20px;
             margin-bottom: 20px;
-            flex-grow: 1; /* Ocupa todo o espaço vertical */
+            flex-grow: 1;
         }
 
         .project-showcase { 
@@ -135,7 +146,8 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
             display: flex;
             flex-direction: column;
-            height: 100%; /* Força altura total */
+            /* height: 100% removido para evitar problemas em mobile */
+            min-height: 200px;
         }
         
         .project-showcase h3 {
@@ -165,7 +177,7 @@
         }
         .kwd { color: #c084fc; } .str { color: #86efac; } .fun { color: #67e8f9; } .cmt { color: #64748b; font-style: italic; } .var { color: #fca5a5; } .cmd { color: #06b6d4; } .arg { color: #f472b6; }
 
-        .contact-box { text-align: center; margin: auto; }
+        .contact-box { text-align: center; margin: auto; width: 100%; }
         .big-link { display: block; background: var(--text-light); color: var(--bg-dark); text-decoration: none; padding: 20px; border-radius: 12px; font-size: 24px; font-weight: 700; margin: 20px 0; }
         .slide-footer { margin-top: auto; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; display: flex; justify-content: space-between; color: var(--text-gray); font-size: 14px; }
 
@@ -190,6 +202,7 @@
             gap: 4px;
             transition: transform 0.2s;
             animation: pulse-glow 2s infinite; 
+            white-space: nowrap; /* Evita quebra de texto no botão */
         }
         .ai-btn:hover { transform: scale(1.05); filter: brightness(1.1); animation: none; }
         .ai-btn i { font-size: 10px; }
@@ -224,6 +237,32 @@
             body { background-color: #020617 !important; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; margin: 0; padding: 0; }
             .slide { margin: 0; width: 210mm; height: 297mm; page-break-after: always; border: none; box-shadow: none; border-radius: 0; background-color: #020617 !important; background-image: var(--gradient-main) !important; }
         }
+
+        /* MEDIA QUERIES PARA MOBILE */
+        @media (max-width: 768px) {
+            .content { padding: 30px 20px; } /* Menos padding lateral */
+            .hero-title { font-size: 48px; } /* Título menor */
+            .hero-subtitle { font-size: 20px; }
+            
+            .tech-grid { grid-template-columns: 1fr; } /* Coluna única para skills */
+            .projects-wrapper { grid-template-columns: 1fr; } /* Coluna única para projetos */
+            
+            .journey-path { padding-left: 20px; }
+            .journey-line { left: 4px; }
+            .journey-card { margin-left: 20px; padding: 15px; }
+            .journey-card::before { left: -28px; width: 16px; height: 16px; }
+            
+            .profile-highlight { flex-direction: column; text-align: center; }
+            
+            .slide { 
+                height: auto !important; /* Altura flexível em mobile */
+                min-height: auto !important;
+                border-radius: 10px;
+            }
+            
+            .chatbot-container { padding: 15px; }
+            .big-link { font-size: 18px; padding: 15px; }
+        }
     </style>
     <script type="importmap">
       { "imports": { "@google/generative-ai": "https://esm.run/@google/generative-ai" } }
@@ -236,15 +275,18 @@
         <div class="bg-grid"></div>
         <div class="glow" style="top: -100px; right: -100px;"></div>
         <div class="content">
-            <span class="tag mono">#OPENTOWORK</span>
-            <span class="tag mono">#INFRAESTRUTURA</span>
-            <div style="margin-top: 40px;">
-                <h1 class="hero-title">DA INDÚSTRIA<br>PARA A TECNOLOGIA.</h1>
-                <h2 class="hero-subtitle">Resiliência Operacional aplicada à Confiabilidade de Software.</h2>
+            <div style="margin-bottom: auto;"> <!-- Espaçador superior -->
+                <span class="tag mono">#OPENTOWORK</span>
+                <span class="tag mono">#INFRAESTRUTURA</span>
+                <div style="margin-top: 40px;">
+                    <h1 class="hero-title">DA INDÚSTRIA<br>PARA A TECNOLOGIA.</h1>
+                    <h2 class="hero-subtitle">Resiliência Operacional aplicada à Confiabilidade de Software.</h2>
+                </div>
+                <p style="font-size: 22px; color: #94a3b8; line-height: 1.6; max-width: 600px;">
+                    Como a experiência em ambientes críticos (Offshore e Siderurgia) formou um profissional de TI focado em <strong>Uptime</strong> e <strong>Segurança</strong>.
+                </p>
             </div>
-            <p style="font-size: 22px; color: #94a3b8; line-height: 1.6; max-width: 600px;">
-                Como a experiência em ambientes críticos (Offshore e Siderurgia) formou um profissional de TI focado em <strong>Uptime</strong> e <strong>Segurança</strong>.
-            </p>
+            
             <div class="profile-highlight">
                 <div class="avatar"></div>
                 <div>
@@ -263,7 +305,7 @@
     <div class="slide">
         <div class="bg-grid"></div>
         <div class="content">
-            <h2 style="font-size: 48px; margin-bottom: 40px;">Minha Trajetória</h2>
+            <h2 style="font-size: 42px; margin-bottom: 30px;">Minha Trajetória</h2>
             <div class="journey-path">
                 <div class="journey-line"></div>
                 <div class="journey-card">
@@ -290,7 +332,7 @@
     <div class="slide">
         <div class="bg-grid"></div>
         <div class="content">
-            <h2 style="font-size: 48px; margin-bottom: 20px;">Caixa de Ferramentas</h2>
+            <h2 style="font-size: 42px; margin-bottom: 20px;">Caixa de Ferramentas</h2>
             <div class="tech-grid">
                 <div class="tech-item"><i class="fa-brands fa-linux"></i><div><h4>Linux Admin</h4><p>Shell, Permissões</p></div></div>
                 <div class="tech-item"><i class="fa-solid fa-network-wired"></i><div><h4>Redes (CCNA)</h4><p>TCP/IP, SSH</p></div></div>
@@ -301,7 +343,7 @@
         </div>
     </div>
 
-    <!-- SLIDE 4: INFRA (GRID 2x2 CHEIO) -->
+    <!-- SLIDE 4: INFRA (RESPONSIVO) -->
     <div class="slide">
         <div class="bg-grid"></div>
         <div class="content">
@@ -393,7 +435,7 @@ echo <span class="str">"Servidor Online!"</span>
         </div>
     </div>
 
-    <!-- SLIDE 5: AUTOMAÇÃO (GRID 2x2 CHEIO) -->
+    <!-- SLIDE 5: AUTOMAÇÃO (RESPONSIVO) -->
     <div class="slide">
         <div class="bg-grid"></div>
         <div class="content">
@@ -605,7 +647,7 @@ echo <span class="str">"Backup Feito!"</span>
                     Você é o Weyller Luiz. Use EXATAMENTE estes dados para responder como SE FOSSE VOCÊ:
                     - **Perfil:** Profissional de Infraestrutura e Suporte com background industrial robusto. Foco em Uptime e Resiliência.
                     - **Atual:** Mecânico Offshore na Engeman (Plataforma). Cuido de geradores e sistemas críticos.
-                    - **Anterior:** Técnico na APM Terminals (Porto do Pecém), reduzi downtime em 15%. Passagem por Siderurgia (Reframax/Rhi Magnesita).
+                    - **Anterior:** Técnico na APM Terminals (Porto do Pecém), reduziu downtime em 15%. Passagem por Siderurgia (Reframax/Rhi Magnesita).
                     - **Acadêmico:** Cursando Pós em Eng. da Computação (Uninter). Pós em Eng. Software (Estácio) e Tecnólogo ADS (Estácio).
                     - **Tech Skills:** Linux (Admin/Shell), Docker (Containerização), Redes (CCNA 1), Python (Automação).
                     - **Soft Skills:** Trabalho sob pressão, resolução de problemas (troubleshooting), adaptabilidade.
