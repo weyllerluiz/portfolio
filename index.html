@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        /* ... (Estilos CSS mantidos e otimizados) ... */
+        /* ... (Estilos CSS mantidos idênticos - Design preservado) ... */
         :root {
             --bg-dark: #0f172a;
             --bg-card: #1e293b;
@@ -389,7 +389,7 @@ echo <span class="str">"Servidor Online!"</span>
                     <div id="ai-response-terraform" class="ai-response-box"><strong style="color: #c084fc;">Gemini:</strong> <span class="response-text">...</span></div>
                 </div>
             </div>
-            <div class="slide-footer"><span>Code</span><span class="mono"></span></div>
+            <div class="slide-footer"><span>Labs</span><span class="mono"></span></div>
         </div>
     </div>
 
@@ -504,7 +504,7 @@ echo <span class="str">"Backup Feito!"</span>
                         </div>
                     </div>
                     <div class="chat-messages" id="chat-messages">
-                        <div class="msg bot">Olá! Sou a IA do Weyller. Pergunte sobre minha experiência na Engeman, projetos de Linux ou formação acadêmica!</div>
+                        <div class="msg bot">Olá! Sou o avatar digital do Weyller. Pergunte sobre minha experiência na Engeman, projetos de Linux ou formação acadêmica!</div>
                     </div>
                     <div class="chat-input-group">
                         <input type="text" id="user-input" class="chat-input" placeholder="Ex: Qual sua pós graduação?" onkeypress="if(event.key === 'Enter') sendMessage()">
@@ -563,7 +563,7 @@ echo <span class="str">"Backup Feito!"</span>
 
             if (!model) {
                 setTimeout(() => { 
-                    responseText.innerHTML = getSimulationResponse(type); 
+                    responseText.innerHTML = getSimulationResponse(type); // REMOVIDO PREFIXO DE ERRO
                 }, 1000);
                 return;
             }
@@ -595,17 +595,17 @@ echo <span class="str">"Backup Feito!"</span>
 
             if (!model) {
                 setTimeout(() => {
-                    document.getElementById(loadingId).innerText = getChatSimulation(userText);
+                    document.getElementById(loadingId).innerText = getChatSimulation(userText); // REMOVIDO PREFIXO DE ERRO
                 }, 1000);
                 return;
             }
 
             try {
                 const prompt = `
-                    Você é o assistente virtual do Weyller Luiz. Use EXATAMENTE estes dados:
+                    Você é o Weyller Luiz. Use EXATAMENTE estes dados para responder como SE FOSSE VOCÊ:
                     - **Perfil:** Profissional de Infraestrutura e Suporte com background industrial robusto. Foco em Uptime e Resiliência.
-                    - **Atual:** Mecânico Offshore na Engeman (Plataforma). Cuida de geradores e sistemas críticos.
-                    - **Anterior:** Técnico na APM Terminals (Porto do Pecém), reduziu downtime em 15%. Passagem por Siderurgia (Reframax/Rhi Magnesita).
+                    - **Atual:** Mecânico Offshore na Engeman (Plataforma). Cuido de geradores e sistemas críticos.
+                    - **Anterior:** Técnico na APM Terminals (Porto do Pecém), reduzi downtime em 15%. Passagem por Siderurgia (Reframax/Rhi Magnesita).
                     - **Acadêmico:** Cursando Pós em Eng. da Computação (Uninter). Pós em Eng. Software (Estácio) e Tecnólogo ADS (Estácio).
                     - **Tech Skills:** Linux (Admin/Shell), Docker (Containerização), Redes (CCNA 1), Python (Automação).
                     - **Soft Skills:** Trabalho sob pressão, resolução de problemas (troubleshooting), adaptabilidade.
@@ -619,7 +619,7 @@ echo <span class="str">"Backup Feito!"</span>
                     Pergunta do recrutador: "${userText}"
                     
                     Diretrizes:
-                    1. Responda na 1ª pessoa do plural ("Nós" ou "O Weyller").
+                    1. Responda na 1ª pessoa do SINGULAR ("Eu" ou "Minha").
                     2. Seja profissional, persuasivo e confiante.
                     3. Se a pergunta for similar às frequentes acima, adapte a resposta para soar natural.
                     4. Resposta completa (cerca de 3 a 4 frases).
@@ -651,36 +651,36 @@ echo <span class="str">"Backup Feito!"</span>
             const m = msg.toLowerCase();
             // Lógica de palavras-chave INTELIGENTE E HUMANIZADA
             if (m.includes("pós") || m.includes("graduação") || m.includes("faculdade") || m.includes("estudo") || m.includes("formação") || m.includes("curso")) {
-                return "A formação académica é um pilar importante para nós. Atualmente, o Weyller está a aprofundar conhecimentos com uma Pós-Graduação em Engenharia da Computação na Uninter, que complementa a sua Pós em Engenharia de Software e a Graduação em Análise e Desenvolvimento de Sistemas, ambas pela Estácio.";
+                return "Minha formação académica é um pilar importante. Atualmente, estou a aprofundar conhecimentos com uma Pós-Graduação em Engenharia da Computação na Uninter, que complementa a minha Pós em Engenharia de Software e a Graduação em Análise e Desenvolvimento de Sistemas, ambas pela Estácio.";
             }
             if (m.includes("linux") || m.includes("servidor") || m.includes("shell")) {
-                return "O Linux é a nossa base! Temos experiência prática na administração de servidores, desde a gestão de utilizadores e permissões até à criação de scripts Shell para automatizar tarefas de infraestrutura e configuração de serviços web como o Apache.";
+                return "O Linux é a minha base! Tenho experiência prática na administração de servidores, desde a gestão de utilizadores e permissões até à criação de scripts Shell para automatizar tarefas de infraestrutura e configuração de serviços web como o Apache.";
             }
             if (m.includes("engeman") || m.includes("offshore") || m.includes("plataforma") || m.includes("atual")) {
-                return "Atualmente, o desafio é na Engeman, em ambiente offshore. Lá, a missão é garantir o funcionamento ininterrupto (Uptime) de sistemas críticos da plataforma, onde a resiliência e a capacidade de resolver problemas sob pressão são testadas diariamente.";
+                return "Atualmente, meu desafio é na Engeman, em ambiente offshore. Lá, minha missão é garantir o funcionamento ininterrupto (Uptime) de sistemas críticos da plataforma, onde a resiliência e a capacidade de resolver problemas sob pressão são testadas diariamente.";
             }
             if (m.includes("apm") || m.includes("porto") || m.includes("pecem") || m.includes("anterior")) {
-                return "Na passagem pela APM Terminals, no Porto do Pecém, o foco foi a manutenção de equipamentos portuários de grande porte. Com uma abordagem baseada em dados, foi possível implementar melhorias que resultaram numa redução de 15% no tempo de inatividade (downtime) dos equipamentos.";
+                return "Na minha passagem pela APM Terminals, no Porto do Pecém, o foco foi a manutenção de equipamentos portuários de grande porte. Com uma abordagem baseada em dados, foi possível implementar melhorias que resultaram numa redução de 15% no tempo de inatividade (downtime) dos equipamentos.";
             }
             if (m.includes("python") || m.includes("programação") || m.includes("código")) {
-                return "Python é a nossa ferramenta de eleição para automação e 'cola' entre sistemas. Usamo-lo para criar scripts que processam dados, automatizam rotinas operacionais e integram diferentes ferramentas, poupando tempo e reduzindo erros manuais.";
+                return "Python é a minha ferramenta de eleição para automação e 'cola' entre sistemas. Uso-o para criar scripts que processam dados, automatizam rotinas operacionais e integram diferentes ferramentas, poupando tempo e reduzindo erros manuais.";
             }
             if (m.includes("mudou") || m.includes("transição") || m.includes("mecânica")) {
-                return "A mudança para a tecnologia foi motivada por uma paixão antiga. A mecânica forneceu uma base sólida de lógica e resolução de problemas críticos, e agora, essa mentalidade de 'consertar e otimizar' é aplicada com sucesso no mundo digital e na infraestrutura de TI.";
+                return "A mudança para a tecnologia foi motivada por uma paixão antiga. A mecânica forneceu-me uma base sólida de lógica e resolução de problemas críticos, e agora, aplico essa mesma mentalidade de 'consertar e otimizar' no mundo digital e na infraestrutura de TI.";
             }
             if (m.includes("pressão") || m.includes("desafio") || m.includes("difícil")) {
-                return "Trabalhar embarcado numa plataforma offshore ensinou-nos a lidar com a pressão extrema. Quando um sistema crítico falha, a calma e o foco na solução são essenciais. Essa experiência em ambientes de alta criticidade é um diferencial que trazemos para a gestão de servidores e redes.";
+                return "Trabalhar embarcado numa plataforma offshore ensinou-me a lidar com a pressão extrema. Quando um sistema crítico falha, a calma e o foco na solução são essenciais. Essa experiência em ambientes de alta criticidade é um diferencial que trago para a gestão de servidores e redes.";
             }
             if (m.includes("contratar") || m.includes("diferencial") || m.includes("por que")) {
-                return "O grande diferencial é a combinação rara de bagagem técnica acadêmica (Pós em Eng. Computação) com a maturidade profissional de quem já liderou em ambientes críticos como siderúrgicas e portos. Não trazemos apenas teoria, mas sim a experiência de um solucionador de problemas testado em campo.";
+                return "O grande diferencial é a combinação rara de bagagem técnica acadêmica (Pós em Eng. Computação) com a maturidade profissional de quem já liderou em ambientes críticos como siderúrgicas e portos. Não trago apenas teoria, mas sim a experiência de um solucionador de problemas testado em campo.";
             }
             if (m.includes("forte") || m.includes("qualidade") || m.includes("bom")) {
-                return "Os nossos pontos fortes são, sem dúvida, a resiliência, o troubleshooting avançado e a capacidade de adaptação rápida. Temos um histórico comprovado de aprender novas tecnologias e aplicá-las para resolver problemas reais e reduzir o tempo de inatividade.";
+                return "Meus pontos fortes são, sem dúvida, a resiliência, o troubleshooting avançado e a capacidade de adaptação rápida. Tenho um histórico comprovado de aprender novas tecnologias e aplicá-las para resolver problemas reais e reduzir o tempo de inatividade.";
             }
             if (m.includes("quem é") || m.includes("resumo") || m.includes("sobre")) {
-                return "O Weyller é um profissional resiliente em transição da Indústria Pesada para a Tecnologia da Informação. Ele traz a disciplina, o foco em segurança e a mentalidade de 'tolerância zero a falhas' de ambientes críticos para a gestão de Infraestrutura de TI.";
+                return "Sou o Weyller, um profissional resiliente em transição da Indústria Pesada para a Tecnologia da Informação. Trago a disciplina, o foco em segurança e a mentalidade de 'tolerância zero a falhas' de ambientes críticos para a gestão de Infraestrutura de TI.";
             }
-            return "Somos focados em Infraestrutura, Automação e, acima de tudo, em garantir que os sistemas funcionam de forma fiável. Como é que a nossa experiência pode agregar valor à sua equipa hoje?";
+            return "Sou focado em Infraestrutura, Automação e, acima de tudo, em garantir que os sistemas funcionam de forma fiável. Como é que a minha experiência pode agregar valor à sua equipa hoje?";
         }
     </script>
 
