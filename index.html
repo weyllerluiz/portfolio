@@ -562,9 +562,8 @@ echo <span class="str">"Backup Feito!"</span>
             const model = await initGemini();
 
             if (!model) {
-                // Mensagem explicita que está no modo simulação
                 setTimeout(() => { 
-                    responseText.innerHTML = "<em>(Modo Backup Inteligente)</em><br>" + getSimulationResponse(type); 
+                    responseText.innerHTML = getSimulationResponse(type); 
                 }, 1000);
                 return;
             }
@@ -574,7 +573,8 @@ echo <span class="str">"Backup Feito!"</span>
                 const result = await model.generateContent(prompt);
                 responseText.innerHTML = result.response.text();
             } catch (error) {
-                responseText.innerHTML = "<em>(Modo Backup - Erro na API)</em><br>" + getSimulationResponse(type);
+                // FALLBACK LIMPO (Sem texto de erro)
+                responseText.innerHTML = getSimulationResponse(type);
             }
         };
 
@@ -595,7 +595,7 @@ echo <span class="str">"Backup Feito!"</span>
 
             if (!model) {
                 setTimeout(() => {
-                    document.getElementById(loadingId).innerHTML = "<em>(Modo Backup Inteligente)</em><br>" + getChatSimulation(userText);
+                    document.getElementById(loadingId).innerText = getChatSimulation(userText);
                 }, 1000);
                 return;
             }
@@ -627,7 +627,8 @@ echo <span class="str">"Backup Feito!"</span>
                 const result = await model.generateContent(prompt);
                 document.getElementById(loadingId).innerText = result.response.text();
             } catch (error) {
-                document.getElementById(loadingId).innerText = "<em>(Modo Backup - Erro na API)</em><br>" + getChatSimulation(userText);
+                // FALLBACK LIMPO (Sem texto de erro)
+                document.getElementById(loadingId).innerText = getChatSimulation(userText);
             }
         };
 
