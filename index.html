@@ -4,12 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfólio Interativo - Weyller Luiz</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2SV5ZQH1K2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-2SV5ZQH1K2');
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        /* ... (Estilos CSS mantidos e otimizados) ... */
+       
         :root {
             --bg-dark: #0f172a;
             --bg-card: #1e293b;
@@ -29,7 +38,7 @@
             color: var(--text-light);
             font-family: 'Outfit', sans-serif;
             margin: 0;
-            padding: 20px 10px; /* Padding reduzido para mobile */
+            padding: 20px 10px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -39,12 +48,12 @@
         /* Container do Slide - RESPONSIVO */
         .slide {
             width: 100%;
-            max-width: 800px; /* Limite máximo para desktop */
-            min-height: 800px; /* Altura mínima em vez de fixa */
-            height: auto; /* Permite crescer se o conteúdo precisar */
+            max-width: 800px;
+            min-height: 800px;
+            height: auto;
             background: var(--gradient-main);
             position: relative;
-            overflow: hidden; /* Mantém overflow hidden para efeitos de fundo */
+            overflow: hidden;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
             display: flex;
             flex-direction: column;
@@ -81,11 +90,11 @@
         .content {
             position: relative;
             z-index: 10;
-            padding: 60px; /* Padding padrão desktop */
+            padding: 60px;
             height: 100%;
             display: flex;
             flex-direction: column;
-            flex-grow: 1; /* Garante que o conteúdo ocupe o espaço */
+            flex-grow: 1;
         }
 
         h1, h2, h3 { margin: 0; }
@@ -130,10 +139,9 @@
         /* Projetos Grid Responsivo */
         .projects-wrapper {
             display: grid;
-            grid-template-columns: 1fr 1fr; /* Desktop: 2 colunas */
-            /* grid-template-rows removido para flexibilidade */
-            gap: 20px;
-            margin-top: 20px;
+            grid-template-columns: 1fr 1fr; 
+            gap: 20px; 
+            margin-top: 20px; 
             margin-bottom: 20px;
             flex-grow: 1;
         }
@@ -146,7 +154,6 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
             display: flex;
             flex-direction: column;
-            /* height: 100% removido para evitar problemas em mobile */
             min-height: 200px;
         }
         
@@ -202,7 +209,7 @@
             gap: 4px;
             transition: transform 0.2s;
             animation: pulse-glow 2s infinite; 
-            white-space: nowrap; /* Evita quebra de texto no botão */
+            white-space: nowrap;
         }
         .ai-btn:hover { transform: scale(1.05); filter: brightness(1.1); animation: none; }
         .ai-btn i { font-size: 10px; }
@@ -240,32 +247,31 @@
 
         /* MEDIA QUERIES PARA MOBILE */
         @media (max-width: 768px) {
-            .content { padding: 30px 20px; } /* Menos padding lateral */
-            .hero-title { font-size: 48px; } /* Título menor */
+            .content { padding: 30px 20px; } 
+            .hero-title { font-size: 48px; }
             .hero-subtitle { font-size: 20px; }
-            
-            .tech-grid { grid-template-columns: 1fr; } /* Coluna única para skills */
-            .projects-wrapper { grid-template-columns: 1fr; } /* Coluna única para projetos */
-            
+            .tech-grid { grid-template-columns: 1fr; } 
+            .projects-wrapper { grid-template-columns: 1fr; }
             .journey-path { padding-left: 20px; }
             .journey-line { left: 4px; }
             .journey-card { margin-left: 20px; padding: 15px; }
             .journey-card::before { left: -28px; width: 16px; height: 16px; }
-            
             .profile-highlight { flex-direction: column; text-align: center; }
-            
-            .slide { 
-                height: auto !important; /* Altura flexível em mobile */
-                min-height: auto !important;
-                border-radius: 10px;
-            }
-            
+            .slide { height: auto !important; min-height: auto !important; border-radius: 10px; }
             .chatbot-container { padding: 15px; }
             .big-link { font-size: 18px; padding: 15px; }
         }
     </style>
+    <!-- Import Maps para Firebase e Gemini -->
     <script type="importmap">
-      { "imports": { "@google/generative-ai": "https://esm.run/@google/generative-ai" } }
+      {
+        "imports": {
+          "@google/generative-ai": "https://esm.run/@google/generative-ai",
+          "firebase/app": "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js",
+          "firebase/firestore": "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js",
+          "firebase/auth": "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js"
+        }
+      }
     </script>
 </head>
 <body>
@@ -275,7 +281,7 @@
         <div class="bg-grid"></div>
         <div class="glow" style="top: -100px; right: -100px;"></div>
         <div class="content">
-            <div style="margin-bottom: auto;"> <!-- Espaçador superior -->
+            <div style="margin-bottom: auto;">
                 <span class="tag mono">#OPENTOWORK</span>
                 <span class="tag mono">#INFRAESTRUTURA</span>
                 <div style="margin-top: 40px;">
@@ -301,11 +307,12 @@
         </div>
     </div>
 
+    <!-- SLIDE 2, 3, 4, 5 -->
     <!-- SLIDE 2 -->
     <div class="slide">
         <div class="bg-grid"></div>
         <div class="content">
-            <h2 style="font-size: 42px; margin-bottom: 30px;">Minha Trajetória</h2>
+            <h2 style="font-size: 48px; margin-bottom: 30px;">Minha Trajetória</h2>
             <div class="journey-path">
                 <div class="journey-line"></div>
                 <div class="journey-card">
@@ -332,7 +339,7 @@
     <div class="slide">
         <div class="bg-grid"></div>
         <div class="content">
-            <h2 style="font-size: 42px; margin-bottom: 20px;">Caixa de Ferramentas</h2>
+            <h2 style="font-size: 48px; margin-bottom: 20px;">Caixa de Ferramentas</h2>
             <div class="tech-grid">
                 <div class="tech-item"><i class="fa-brands fa-linux"></i><div><h4>Linux Admin</h4><p>Shell, Permissões</p></div></div>
                 <div class="tech-item"><i class="fa-solid fa-network-wired"></i><div><h4>Redes (CCNA)</h4><p>TCP/IP, SSH</p></div></div>
@@ -343,91 +350,35 @@
         </div>
     </div>
 
-    <!-- SLIDE 4: INFRA (RESPONSIVO) -->
+    <!-- SLIDE 4: INFRA -->
     <div class="slide">
         <div class="bg-grid"></div>
         <div class="content">
             <h2 style="font-size: 42px; margin-bottom: 10px;">Infra as Code</h2>
             <p style="color: var(--text-gray); margin-bottom: 20px;">Provisionamento e Monitoramento.</p>
-            
             <div class="projects-wrapper">
-                <!-- Projeto 1 -->
                 <div class="project-showcase">
                     <h3>☁️ Servidor Web</h3>
-                    <div class="terminal-header">
-                        <div class="window-controls"><div class="dot red"></div><div class="dot yellow"></div></div>
-                        <span class="file-name">provision.sh</span>
-                        <button class="ai-btn" onclick="explainCode('provision')"><i class="fa-solid fa-wand-magic-sparkles"></i> IA</button>
-                    </div>
-                    <div class="terminal-body" id="code-provision">
-<span class="cmd">./setup.sh</span> <span class="arg">--apache</span>
-<span class="cmt"># Atualiza e instala</span>
-apt-get update && apt-get install apache2 -y
-<span class="cmt"># Configura Firewall</span>
-ufw allow 'Apache'
-systemctl enable apache2
-echo <span class="str">"Servidor Online!"</span>
-                    </div>
+                    <div class="terminal-header"><div class="window-controls"><div class="dot red"></div><div class="dot yellow"></div></div><span class="file-name">provision.sh</span><button class="ai-btn" onclick="explainCode('provision')"><i class="fa-solid fa-wand-magic-sparkles"></i> IA</button></div>
+                    <div class="terminal-body" id="code-provision"><span class="cmd">./setup.sh</span> <span class="arg">--apache</span><br>apt-get update && apt-get install apache2 -y<br>ufw allow 'Apache'<br>systemctl enable apache2<br>echo <span class="str">"Servidor Online!"</span></div>
                     <div id="ai-response-provision" class="ai-response-box"><strong style="color: #c084fc;">Gemini:</strong> <span class="response-text">...</span></div>
                 </div>
-
-                <!-- Projeto 2 -->
                 <div class="project-showcase" style="background: #1e1b4b;">
                     <h3>🐳 Docker Labs</h3>
-                    <div class="terminal-header">
-                        <div class="window-controls"><div class="dot red"></div><div class="dot yellow"></div></div>
-                        <span class="file-name">Dockerfile</span>
-                        <button class="ai-btn" onclick="explainCode('docker')"><i class="fa-solid fa-wand-magic-sparkles"></i> IA</button>
-                    </div>
-                    <div class="terminal-body" id="code-docker">
-<span class="kwd">FROM</span> node:14
-<span class="kwd">WORKDIR</span> /app
-<span class="kwd">COPY</span> . .
-<span class="kwd">RUN</span> npm install
-<span class="kwd">EXPOSE</span> 8080
-<span class="kwd">CMD</span> [<span class="str">"node"</span>, <span class="str">"server.js"</span>]
-                    </div>
+                    <div class="terminal-header"><div class="window-controls"><div class="dot red"></div><div class="dot yellow"></div></div><span class="file-name">Dockerfile</span><button class="ai-btn" onclick="explainCode('docker')"><i class="fa-solid fa-wand-magic-sparkles"></i> IA</button></div>
+                    <div class="terminal-body" id="code-docker"><span class="kwd">FROM</span> node:14<br><span class="kwd">WORKDIR</span> /app<br><span class="kwd">COPY</span> . .<br><span class="kwd">RUN</span> npm install<br><span class="kwd">EXPOSE</span> 8080<br><span class="kwd">CMD</span> [<span class="str">"node"</span>, <span class="str">"server.js"</span>]</div>
                     <div id="ai-response-docker" class="ai-response-box"><strong style="color: #c084fc;">Gemini:</strong> <span class="response-text">...</span></div>
                 </div>
-
-                <!-- Projeto 3 -->
                 <div class="project-showcase" style="background: #172554;">
                     <h3>🚀 CI/CD Pipeline</h3>
-                    <div class="terminal-header">
-                        <div class="window-controls"><div class="dot red"></div><div class="dot yellow"></div></div>
-                        <span class="file-name">ci.yml</span>
-                        <button class="ai-btn" onclick="explainCode('github')"><i class="fa-solid fa-wand-magic-sparkles"></i> IA</button>
-                    </div>
-                    <div class="terminal-body" id="code-github">
-<span class="kwd">name:</span> Build & Test
-<span class="kwd">on:</span> [push]
-<span class="kwd">jobs:</span>
-  <span class="fun">build:</span>
-    <span class="var">runs-on:</span> ubuntu-latest
-    <span class="kwd">steps:</span>
-      - <span class="cmd">uses:</span> actions/checkout@v2
-      - <span class="cmd">run:</span> npm test
-                    </div>
+                    <div class="terminal-header"><div class="window-controls"><div class="dot red"></div><div class="dot yellow"></div></div><span class="file-name">ci.yml</span><button class="ai-btn" onclick="explainCode('github')"><i class="fa-solid fa-wand-magic-sparkles"></i> IA</button></div>
+                    <div class="terminal-body" id="code-github"><span class="kwd">name:</span> Build & Test<br><span class="kwd">on:</span> [push]<br><span class="kwd">jobs:</span><br>  <span class="fun">build:</span><br>    <span class="var">runs-on:</span> ubuntu-latest<br>    <span class="kwd">steps:</span><br>      - <span class="cmd">uses:</span> actions/checkout@v2<br>      - <span class="cmd">run:</span> npm test</div>
                     <div id="ai-response-github" class="ai-response-box"><strong style="color: #c084fc;">Gemini:</strong> <span class="response-text">...</span></div>
                 </div>
-
-                <!-- Projeto 4 -->
                 <div class="project-showcase" style="background: #312e81;">
                     <h3>🏗️ Terraform AWS</h3>
-                    <div class="terminal-header">
-                        <div class="window-controls"><div class="dot red"></div><div class="dot yellow"></div></div>
-                        <span class="file-name">main.tf</span>
-                        <button class="ai-btn" onclick="explainCode('terraform')"><i class="fa-solid fa-wand-magic-sparkles"></i> IA</button>
-                    </div>
-                    <div class="terminal-body" id="code-terraform">
-<span class="kwd">resource</span> <span class="str">"aws_instance"</span> <span class="str">"web"</span> {
-  <span class="var">ami</span>           = "ami-0c55b159cbfafe1f0"
-  <span class="var">instance_type</span> = "t2.micro"
-  <span class="var">tags</span> = {
-    Name = <span class="str">"WebServer-Prod"</span>
-  }
-}
-                    </div>
+                    <div class="terminal-header"><div class="window-controls"><div class="dot red"></div><div class="dot yellow"></div></div><span class="file-name">main.tf</span><button class="ai-btn" onclick="explainCode('terraform')"><i class="fa-solid fa-wand-magic-sparkles"></i> IA</button></div>
+                    <div class="terminal-body" id="code-terraform"><span class="kwd">resource</span> <span class="str">"aws_instance"</span> <span class="str">"web"</span> {<br>  <span class="var">ami</span> = "ami-0c55b..."<br>  <span class="var">instance_type</span> = "t2.micro"<br>  <span class="var">tags</span> = { Name = <span class="str">"WebServer"</span> }<br>}</div>
                     <div id="ai-response-terraform" class="ai-response-box"><strong style="color: #c084fc;">Gemini:</strong> <span class="response-text">...</span></div>
                 </div>
             </div>
@@ -435,95 +386,38 @@ echo <span class="str">"Servidor Online!"</span>
         </div>
     </div>
 
-    <!-- SLIDE 5: AUTOMAÇÃO (RESPONSIVO) -->
+    <!-- SLIDE 5: AUTOMAÇÃO -->
     <div class="slide">
         <div class="bg-grid"></div>
         <div class="content">
             <h2 style="font-size: 42px; margin-bottom: 10px;">Automação & Scripts</h2>
             <p style="color: var(--text-gray); margin-bottom: 20px;">Otimizando rotinas repetitivas.</p>
-
             <div class="projects-wrapper">
-                <!-- Projeto 1 -->
                 <div class="project-showcase">
                     <h3>🐍 Organizador Arq.</h3>
-                    <div class="terminal-header">
-                        <div class="window-controls"><div class="dot red"></div><div class="dot yellow"></div></div>
-                        <span class="file-name">organizer.py</span>
-                        <button class="ai-btn" onclick="explainCode('organizer')"><i class="fa-solid fa-wand-magic-sparkles"></i> IA</button>
-                    </div>
-                    <div class="terminal-body" id="code-organizer">
-<span class="kwd">import</span> os, shutil
-<span class="cmt"># Move PDFs para pasta Docs</span>
-<span class="kwd">for</span> f <span class="kwd">in</span> os.listdir(<span class="str">'.'</span>):
-  <span class="kwd">if</span> f.endswith(<span class="str">'.pdf'</span>):
-    shutil.move(f, <span class="str">'Docs/'</span>)
-    <span class="fun">print</span>(<span class="str">f"Movido: {f}"</span>)
-                    </div>
+                    <div class="terminal-header"><div class="window-controls"><div class="dot red"></div><div class="dot yellow"></div></div><span class="file-name">organizer.py</span><button class="ai-btn" onclick="explainCode('organizer')"><i class="fa-solid fa-wand-magic-sparkles"></i> IA</button></div>
+                    <div class="terminal-body" id="code-organizer"><span class="kwd">import</span> os, shutil<br><span class="kwd">for</span> f <span class="kwd">in</span> os.listdir(<span class="str">'.'</span>):<br>  <span class="kwd">if</span> f.endswith(<span class="str">'.pdf'</span>):<br>    shutil.move(f, <span class="str">'Docs/'</span>)<br>    <span class="fun">print</span>(<span class="str">f"Movido: {f}"</span>)</div>
                     <div id="ai-response-organizer" class="ai-response-box"><strong style="color: #c084fc;">Gemini:</strong> <span class="response-text">...</span></div>
                 </div>
-
-                <!-- Projeto 2 -->
                 <div class="project-showcase" style="background: #020617;">
                     <h3>💾 Backup Auto</h3>
-                    <div class="terminal-header">
-                        <div class="window-controls"><div class="dot red"></div><div class="dot yellow"></div></div>
-                        <span class="file-name">backup.sh</span>
-                        <button class="ai-btn" onclick="explainCode('backup')"><i class="fa-solid fa-wand-magic-sparkles"></i> IA</button>
-                    </div>
-                    <div class="terminal-body" id="code-backup">
-<span class="cmt">#!/bin/bash</span>
-DATE=$(date +%F)
-<span class="cmt"># Compacta pasta do site</span>
-tar -czf backup_$DATE.tar.gz /var/www
-<span class="cmt"># Move para servidor remoto</span>
-scp backup_$DATE.tar.gz user@remote:/backups
-echo <span class="str">"Backup Feito!"</span>
-                    </div>
+                    <div class="terminal-header"><div class="window-controls"><div class="dot red"></div><div class="dot yellow"></div></div><span class="file-name">backup.sh</span><button class="ai-btn" onclick="explainCode('backup')"><i class="fa-solid fa-wand-magic-sparkles"></i> IA</button></div>
+                    <div class="terminal-body" id="code-backup"><span class="cmt">#!/bin/bash</span><br>DATE=$(date +%F)<br>tar -czf backup_$DATE.tar.gz /var/www<br>scp backup_$DATE.tar.gz user@remote:/backups<br>echo <span class="str">"Backup Feito!"</span></div>
                     <div id="ai-response-backup" class="ai-response-box"><strong style="color: #c084fc;">Gemini:</strong> <span class="response-text">...</span></div>
                 </div>
-
-                <!-- Projeto 3 -->
                 <div class="project-showcase" style="background: #1e1b4b;">
                     <h3>🔍 Log Analyzer</h3>
-                    <div class="terminal-header">
-                        <div class="window-controls"><div class="dot red"></div><div class="dot yellow"></div></div>
-                        <span class="file-name">logs.py</span>
-                        <button class="ai-btn" onclick="explainCode('logs')"><i class="fa-solid fa-wand-magic-sparkles"></i> IA</button>
-                    </div>
-                    <div class="terminal-body" id="code-logs">
-<span class="kwd">with</span> open(<span class="str">'server.log'</span>) <span class="kwd">as</span> f:
-  errors = [line <span class="kwd">for</span> line <span class="kwd">in</span> f <span class="kwd">if</span> <span class="str">'ERROR'</span> <span class="kwd">in</span> line]
-<span class="fun">print</span>(<span class="str">f"Total de Erros: {len(errors)}"</span>)
-<span class="cmt"># Envia alerta se > 10 erros</span>
-<span class="kwd">if</span> len(errors) > 10:
-  send_alert()
-                    </div>
+                    <div class="terminal-header"><div class="window-controls"><div class="dot red"></div><div class="dot yellow"></div></div><span class="file-name">logs.py</span><button class="ai-btn" onclick="explainCode('logs')"><i class="fa-solid fa-wand-magic-sparkles"></i> IA</button></div>
+                    <div class="terminal-body" id="code-logs"><span class="kwd">with</span> open(<span class="str">'server.log'</span>) <span class="kwd">as</span> f:<br>  errors = [l <span class="kwd">for</span> l <span class="kwd">in</span> f <span class="kwd">if</span> <span class="str">'ERROR'</span> <span class="kwd">in</span> l]<br><span class="fun">print</span>(<span class="str">f"Erros: {len(errors)}"</span>)<br><span class="kwd">if</span> len(errors) > 10: send_alert()</div>
                     <div id="ai-response-logs" class="ai-response-box"><strong style="color: #c084fc;">Gemini:</strong> <span class="response-text">...</span></div>
                 </div>
-
-                <!-- Projeto 4 -->
                 <div class="project-showcase" style="background: #172554;">
                     <h3>🌐 Health Check</h3>
-                    <div class="terminal-header">
-                        <div class="window-controls"><div class="dot red"></div><div class="dot yellow"></div></div>
-                        <span class="file-name">check.py</span>
-                        <button class="ai-btn" onclick="explainCode('health')"><i class="fa-solid fa-wand-magic-sparkles"></i> IA</button>
-                    </div>
-                    <div class="terminal-body" id="code-health">
-<span class="kwd">import</span> requests
-<span class="kwd">try</span>:
-  r = requests.get(<span class="str">'https://site.com'</span>)
-  <span class="kwd">if</span> r.status_code == 200:
-    <span class="fun">print</span>(<span class="str">"Site Online ✅"</span>)
-  <span class="kwd">else</span>:
-    <span class="fun">print</span>(<span class="str">"Site Down ❌"</span>)
-<span class="kwd">except</span>:
-  send_sms_alert()
-                    </div>
+                    <div class="terminal-header"><div class="window-controls"><div class="dot red"></div><div class="dot yellow"></div></div><span class="file-name">check.py</span><button class="ai-btn" onclick="explainCode('health')"><i class="fa-solid fa-wand-magic-sparkles"></i> IA</button></div>
+                    <div class="terminal-body" id="code-health"><span class="kwd">import</span> requests<br><span class="kwd">try</span>:<br>  r = requests.get(<span class="str">'https://site.com'</span>)<br>  <span class="kwd">if</span> r.status_code == 200: <span class="fun">print</span>(<span class="str">"Online ✅"</span>)<br><span class="kwd">except</span>: send_sms_alert()</div>
                     <div id="ai-response-health" class="ai-response-box"><strong style="color: #c084fc;">Gemini:</strong> <span class="response-text">...</span></div>
                 </div>
             </div>
-            
             <div class="slide-footer"><span>Code</span><span class="mono"></span></div>
         </div>
     </div>
@@ -559,139 +453,48 @@ echo <span class="str">"Backup Feito!"</span>
                 </a>
                 <p class="mono" style="margin-top: 10px; color: var(--accent-cyan);">weyller.duarte@gmail.com</p>
             </div>
-            <div class="slide-footer"><span>Obrigado!</span><span class="mono"></span></div>
+            <div class="slide-footer">
+                <span>Obrigado!</span>
+                <!-- CONTADOR REMOVIDO PARA LIMPEZA -->
+            </div>
         </div>
     </div>
 
     <script type="module">
         import { GoogleGenerativeAI } from "@google/generative-ai";
+        
+        // --- CONFIGURAÇÃO PÚBLICA ---
+        const PUBLIC_API_KEY = "AIzaSyCld1ImEpQ46eiaA2yxaFTnEMrNa3LqPlo"; // Sua chave Gemini
 
-        // --- ÁREA DE CONFIGURAÇÃO PÚBLICA ---
-        const PUBLIC_API_KEY = "AIzaSyCld1ImEpQ46eiaA2yxaFTnEMrNa3LqPlo"; // <--- Chave configurada com sucesso!
-
-        // Função segura para obter chave (Código ou Prompt)
+        // --- LÓGICA GEMINI (IA) ---
         function getSafeKey() {
             if (PUBLIC_API_KEY && PUBLIC_API_KEY.length > 10) return PUBLIC_API_KEY;
-            const savedKey = localStorage.getItem("gemini_user_key");
-            if (savedKey) return savedKey;
-            
-            // Pergunta ao usuário se ele quer usar a IA real
-            const userKey = prompt("Para falar com a IA REAL, insira sua API Key do Google Gemini.\n(Se deixar em branco, usarei respostas pré-gravadas).");
-            if (userKey) {
-                localStorage.setItem("gemini_user_key", userKey);
-                return userKey;
-            }
-            return null;
+            return localStorage.getItem("gemini_user_key");
         }
 
         async function initGemini() {
             const key = getSafeKey();
-            if (!key) return null; // Retorna nulo para ativar o modo simulação
+            if (!key) return null;
             try {
                 const genAI = new GoogleGenerativeAI(key);
                 return genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
             } catch (e) { return null; }
         }
 
-        window.explainCode = async (type) => {
-            const responseBox = document.getElementById(`ai-response-${type}`);
-            const responseText = responseBox.querySelector('.response-text');
-            const codeContent = document.getElementById(`code-${type}`).innerText;
-
-            responseBox.classList.add('active');
-            responseText.innerHTML = '<span class="loading">Conectando ao cérebro digital...</span>';
-
-            const model = await initGemini();
-
-            if (!model) {
-                setTimeout(() => { 
-                    responseText.innerHTML = getSimulationResponse(type); // REMOVIDO PREFIXO DE ERRO
-                }, 1000);
-                return;
-            }
-
-            try {
-                const prompt = `Aja como um DevOps Senior. Explique este código de forma curta e impactante (máx 2 frases), focando no valor que ele traz: ${codeContent}`;
-                const result = await model.generateContent(prompt);
-                responseText.innerHTML = result.response.text();
-            } catch (error) {
-                // FALLBACK LIMPO (Sem texto de erro)
-                responseText.innerHTML = getSimulationResponse(type);
-            }
+        // --- Simulação Inteligente ---
+        const MOCK_DATA = {
+            provision: "Este script Bash é essencial para garantir que todos os nossos servidores web sejam configurados exatamente da mesma maneira, instalando o Apache e ativando o firewall automaticamente para manter a segurança.",
+            docker: "Aqui temos um Dockerfile que cria um ambiente isolado e padronizado para aplicações Node.js. Isso resolve aquele velho problema de 'funciona na minha máquina', garantindo que o código rode igual em desenvolvimento e produção.",
+            github: "Este pipeline de CI/CD automatiza nossos testes a cada alteração no código. É como ter um robô que verifica se quebramos algo antes de o código ir para o ar, aumentando muito a confiabilidade.",
+            terraform: "Usamos Terraform para definir nossa infraestrutura na AWS como código. Isso permite criar e recriar servidores inteiros em minutos, de forma controlada e versionada, em vez de clicar manualmente na consola.",
+            organizer: "Este script Python foi criado para eliminar o trabalho manual de organizar arquivos. Ele varre as pastas e move documentos automaticamente para os lugares certos, poupando horas de trabalho repetitivo.",
+            backup: "A segurança dos dados é prioridade. Este script automatiza o backup do site, compactando tudo e enviando para um servidor remoto seguro, garantindo que podemos recuperar tudo rapidamente em caso de falha.",
+            logs: "Monitoramento proativo é chave. Este script analisa os logs do servidor em tempo real e nos alerta imediatamente se a taxa de erros aumentar, permitindo reagir antes que o utilizador final perceba o problema.",
+            health: "Este é um 'Health Check' automatizado que vigia o site 24/7. Se o site sair do ar por qualquer motivo, ele dispara um alerta para a equipa agir imediatamente, garantindo o máximo de Uptime."
         };
-
-        window.sendMessage = async () => {
-            const input = document.getElementById('user-input');
-            const messages = document.getElementById('chat-messages');
-            const userText = input.value;
-            if (!userText.trim()) return;
-
-            messages.innerHTML += `<div class="msg user">${userText}</div>`;
-            input.value = '';
-            messages.scrollTop = messages.scrollHeight;
-            const loadingId = 'loading-' + Date.now();
-            messages.innerHTML += `<div class="msg bot" id="${loadingId}"><span class="loading">Pensando...</span></div>`;
-            messages.scrollTop = messages.scrollHeight;
-
-            const model = await initGemini();
-
-            if (!model) {
-                setTimeout(() => {
-                    document.getElementById(loadingId).innerText = getChatSimulation(userText); // REMOVIDO PREFIXO DE ERRO
-                }, 1000);
-                return;
-            }
-
-            try {
-                const prompt = `
-                    Você é o Weyller Luiz. Use EXATAMENTE estes dados para responder como SE FOSSE VOCÊ:
-                    - **Perfil:** Profissional de Infraestrutura e Suporte com background industrial robusto. Foco em Uptime e Resiliência.
-                    - **Atual:** Mecânico Offshore na Engeman (Plataforma). Cuido de geradores e sistemas críticos.
-                    - **Anterior:** Técnico na APM Terminals (Porto do Pecém), reduziu downtime em 15%. Passagem por Siderurgia (Reframax/Rhi Magnesita).
-                    - **Acadêmico:** Cursando Pós em Eng. da Computação (Uninter). Pós em Eng. Software (Estácio) e Tecnólogo ADS (Estácio).
-                    - **Tech Skills:** Linux (Admin/Shell), Docker (Containerização), Redes (CCNA 1), Python (Automação).
-                    - **Soft Skills:** Trabalho sob pressão, resolução de problemas (troubleshooting), adaptabilidade.
-
-                    ### PERGUNTAS FREQUENTES DE ENTREVISTA (RESPOSTAS PRONTAS):
-                    - **Por que mudou de área?**: "Sempre fui apaixonado por tecnologia. A mecânica me deu a base de lógica e resolução de problemas críticos. Agora, estou aplicando essa mesma mentalidade de 'consertar e otimizar' no mundo digital."
-                    - **Como lida com pressão?**: "Trabalhando embarcado em plataforma offshore, lidar com pressão é o meu dia a dia. Se um gerador para, a plataforma para. Estou acostumado a resolver problemas complexos com o relógio correndo, mantendo a calma e o foco na solução."
-                    - **Por que contratar você?**: "Trago uma combinação rara: a bagagem técnica acadêmica (Pós em Eng. Computação) somada à maturidade profissional de quem já liderou equipes e manteve operações críticas em siderúrgicas e portos. Não sou apenas um iniciante; sou um solucionador de problemas experiente."
-                    - **Pontos fortes?**: "Minha maior força é a resiliência e o troubleshooting avançado. Aprendo rápido e não desisto até encontrar a causa raiz do problema."
-
-                    Pergunta do recrutador: "${userText}"
-                    
-                    Diretrizes:
-                    1. Responda na 1ª pessoa do SINGULAR ("Eu" ou "Minha").
-                    2. Seja profissional, persuasivo e confiante.
-                    3. Se a pergunta for similar às frequentes acima, adapte a resposta para soar natural.
-                    4. Resposta completa (cerca de 3 a 4 frases).
-                `;
-                const result = await model.generateContent(prompt);
-                document.getElementById(loadingId).innerText = result.response.text();
-            } catch (error) {
-                // FALLBACK LIMPO (Sem texto de erro)
-                document.getElementById(loadingId).innerText = getChatSimulation(userText);
-            }
-        };
-
-        // --- SIMULAÇÃO INTELIGENTE (HUMANIZADA E MAIS LONGA) ---
-        function getSimulationResponse(type) {
-            const responses = {
-                provision: "Este script Bash é essencial para garantir que todos os nossos servidores web sejam configurados exatamente da mesma maneira, instalando o Apache e ativando o firewall automaticamente para manter a segurança.",
-                docker: "Aqui temos um Dockerfile que cria um ambiente isolado e padronizado para aplicações Node.js. Isso resolve aquele velho problema de 'funciona na minha máquina', garantindo que o código rode igual em desenvolvimento e produção.",
-                github: "Este pipeline de CI/CD automatiza nossos testes a cada alteração no código. É como ter um robô que verifica se quebramos algo antes de o código ir para o ar, aumentando muito a confiabilidade.",
-                terraform: "Usamos Terraform para definir nossa infraestrutura na AWS como código. Isso permite criar e recriar servidores inteiros em minutos, de forma controlada e versionada, em vez de clicar manualmente na consola.",
-                organizer: "Este script Python foi criado para eliminar o trabalho manual de organizar arquivos. Ele varre as pastas e move documentos automaticamente para os lugares certos, poupando horas de trabalho repetitivo.",
-                backup: "A segurança dos dados é prioridade. Este script automatiza o backup do site, compactando tudo e enviando para um servidor remoto seguro, garantindo que podemos recuperar tudo rapidamente em caso de falha.",
-                logs: "Monitoramento proativo é chave. Este script analisa os logs do servidor em tempo real e nos alerta imediatamente se a taxa de erros aumentar, permitindo reagir antes que o utilizador final perceba o problema.",
-                health: "Este é um 'Health Check' automatizado que vigia o site 24/7. Se o site sair do ar por qualquer motivo, ele dispara um alerta para a equipa agir imediatamente, garantindo o máximo de Uptime."
-            };
-            return responses[type] || "Código analisado com sucesso. Este trecho demonstra boas práticas de automação e infraestrutura.";
-        }
 
         function getChatSimulation(msg) {
             const m = msg.toLowerCase();
-            // Lógica de palavras-chave INTELIGENTE E HUMANIZADA
             if (m.includes("pós") || m.includes("graduação") || m.includes("faculdade") || m.includes("estudo") || m.includes("formação") || m.includes("curso")) {
                 return "Minha formação académica é um pilar importante. Atualmente, estou a aprofundar conhecimentos com uma Pós-Graduação em Engenharia da Computação na Uninter, que complementa a minha Pós em Engenharia de Software e a Graduação em Análise e Desenvolvimento de Sistemas, ambas pela Estácio.";
             }
@@ -724,6 +527,77 @@ echo <span class="str">"Backup Feito!"</span>
             }
             return "Sou focado em Infraestrutura, Automação e, acima de tudo, em garantir que os sistemas funcionam de forma fiável. Como é que a minha experiência pode agregar valor à sua equipa hoje?";
         }
+
+        // --- Funções Globais (Chat e Code) ---
+        window.explainCode = async (type) => {
+            const responseBox = document.getElementById(`ai-response-${type}`);
+            const responseText = responseBox.querySelector('.response-text');
+            const codeContent = document.getElementById(`code-${type}`).innerText;
+
+            responseBox.classList.add('active');
+            responseText.innerHTML = '<span class="loading">Conectando ao cérebro digital...</span>';
+
+            const model = await initGemini();
+
+            if (!model) {
+                setTimeout(() => { responseText.innerHTML = MOCK_DATA[type]; }, 1000);
+                return;
+            }
+
+            try {
+                const prompt = `Aja como um DevOps Senior. Explique este código de forma curta e impactante (máx 2 frases), focando no valor que ele traz: ${codeContent}`;
+                const result = await model.generateContent(prompt);
+                responseText.innerHTML = result.response.text();
+            } catch (error) {
+                responseText.innerHTML = MOCK_DATA[type];
+            }
+        };
+
+        window.sendMessage = async () => {
+            const input = document.getElementById('user-input');
+            const messages = document.getElementById('chat-messages');
+            const userText = input.value;
+            if (!userText.trim()) return;
+
+            messages.innerHTML += `<div class="msg user">${userText}</div>`;
+            input.value = '';
+            messages.scrollTop = messages.scrollHeight;
+            const loadingId = 'loading-' + Date.now();
+            messages.innerHTML += `<div class="msg bot" id="${loadingId}"><span class="loading">Pensando...</span></div>`;
+            messages.scrollTop = messages.scrollHeight;
+
+            const model = await initGemini();
+
+            if (!model) {
+                setTimeout(() => {
+                    document.getElementById(loadingId).innerText = getChatSimulation(userText);
+                }, 1000);
+                return;
+            }
+
+            try {
+                const prompt = `
+                    Você é o Weyller Luiz. Use EXATAMENTE estes dados para responder como SE FOSSE VOCÊ:
+                    - **Perfil:** Profissional de Infraestrutura e Suporte com background industrial robusto.
+                    - **Atual:** Mecânico Offshore na Engeman. Cuido de geradores e sistemas críticos.
+                    - **Anterior:** Técnico na APM Terminals (Porto do Pecém), reduziu downtime em 15%. Passagem por Siderurgia (Reframax/Rhi Magnesita).
+                    - **Acadêmico:** Cursando Pós em Eng. da Computação (Uninter). Pós em Eng. Software (Estácio) e Tecnólogo ADS (Estácio).
+                    - **Tech Skills:** Linux (Admin/Shell), Docker (Containerização), Redes (CCNA 1), Python (Automação).
+                    - **Soft Skills:** Trabalho sob pressão, resolução de problemas (troubleshooting), adaptabilidade.
+
+                    Pergunta do recrutador: "${userText}"
+                    
+                    Diretrizes:
+                    1. Responda na 1ª pessoa do SINGULAR ("Eu", "Minha").
+                    2. Seja profissional, persuasivo e confiante.
+                    3. Resposta completa (cerca de 3 a 4 frases).
+                `;
+                const result = await model.generateContent(prompt);
+                document.getElementById(loadingId).innerText = result.response.text();
+            } catch (error) {
+                document.getElementById(loadingId).innerText = getChatSimulation(userText);
+            }
+        };
     </script>
 
 </body>
